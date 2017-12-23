@@ -1,0 +1,4 @@
+FROM stefanlehmann/hybris-base-image:latest
+ENV PLATFORM_HOME=/home/hybris/bin/platform
+ENV PATH=\$PLATFORM_HOME:\$PATH
+COPY /opt/hybris/temp/hybris/hybrisServer/hybrisServer*.zip /home/hybris/
