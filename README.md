@@ -3,10 +3,10 @@
 
 ### Environment
 ```
-REGISTRY: 用于推送成品镜像的docker registry
+REGISTRY: 需要登录的Docker Registry
 USERNAME: Docker Registry 用户名
 PASSWORD: Docker Registry 密码
-IMAGE_TAG: 需要生成的ImageTag
+IMAGE_TAG: 需要生成的ImageTag ([REGISTRY_HOST[:REGISTRY_PORT]/]REPOSITORY[:TAG])
 ```
 
 ### Volume
@@ -29,6 +29,6 @@ docker run -v /path/to/custom:/opt/hybris/bin/custom \
 kubectl run -v /path/to/custom:/opt/hybris/bin/custom \
 -v /path/to/config:/opt/hybris/config \
 -e REGISTRY=localhost:5000 -e USERNAME=test \
--e PASSWORD=test -e IMAGE_TAG=hybris:latest  \
+-e PASSWORD=test -e IMAGE_TAG=localhost:5000/hybris:latest  \
 --rm --image=zqiannnn/hybris-build  --restart=Never hybris-build 
 ```
