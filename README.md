@@ -18,7 +18,15 @@ IMAGE_TAG: 需要生成的ImageTag
 ### Demo
 ```
 Docker:
-docker run -v /path/to/custom:/opt/hybris/bin/custom -v /path/to/config:/opt/hybris/config -e REGISTRY=localhost:5000 -e USERNAME=test -e PASSWORD=test IMAGE_TAG=hybris:latest --rm --name hybris-build  zqiannnn/hybris-build 
+docker run -v /path/to/custom:/opt/hybris/bin/custom \
+-v /path/to/config:/opt/hybris/config \
+-e REGISTRY=localhost:5000 -e USERNAME=test \
+-e PASSWORD=test -e IMAGE_TAG=hybris:latest \
+--rm --name hybris-build  zqiannnn/hybris-build 
 Kubernetes:
-kubectl run -v /path/to/custom:/opt/hybris/bin/custom -v /path/to/config:/opt/hybris/config -e REGISTRY=localhost:5000 -e USERNAME=test -e PASSWORD=test IMAGE_TAG=hybris:latest  --rm --image=zqiannnn/hybris-build  --restart=Never hybris-build 
+kubectl run -v /path/to/custom:/opt/hybris/bin/custom \
+-v /path/to/config:/opt/hybris/config \
+-e REGISTRY=localhost:5000 -e USERNAME=test \
+-e PASSWORD=test -e IMAGE_TAG=hybris:latest  \
+--rm --image=zqiannnn/hybris-build  --restart=Never hybris-build 
 ```
