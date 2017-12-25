@@ -20,9 +20,9 @@ IMAGE_TAG: 需要生成的ImageTag ([REGISTRY_HOST[:REGISTRY_PORT]/]REPOSITORY[:
 ```
 docker run -v /path/to/custom:/opt/hybris/bin/custom \
 -v /path/to/config:/opt/hybris/config \
--e REGISTRY=localhost:5000 -e USERNAME=test \
--e PASSWORD=test -e IMAGE_TAG=172.17.0.1:5000/hybris:latest \
---rm --name hybris-build  zqiannnn/hybris-build 
+-e REGISTRY=172.17.0.1:5000 \
+-e IMAGE_TAG=172.17.0.1:5000/hybris:latest \
+--privileged --rm --name hybris-build  zqiannnn/hybris-build 
 ```
 **Kubernetes:**
 ```
