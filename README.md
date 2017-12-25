@@ -1,5 +1,5 @@
 # hybrisimage-build
-## Docker in Docker 用于制作基于 `stefanlehmann/hybris-base-image`的成品镜像
+## Docker in Docker 用于制作基于 `zqiannnn/hybris-base-image`的成品镜像
 
 ### Environment
 ```
@@ -17,16 +17,26 @@ IMAGE_TAG: 需要生成的ImageTag ([REGISTRY_HOST[:REGISTRY_PORT]/]REPOSITORY[:
 
 ### Demo
 **Docker:**
+> 外挂HYBRIS模式
+```
+docker run -v /path/to/bin:/opt/hybris/bin \
+-v /path/to/config:/opt/hybris/config \
+-e REGISTRY=172.17.0.1:5000 \
+-e IMAGE_TAG=172.17.0.1:5000/hybris:latest \
+--privileged --rm --name hybris-build  zqiannnn/hybris-build:extenal
+```
+
+> 内置HYBRIS模式（适用于持续集成）
 ```
 docker run -v /path/to/custom:/opt/hybris/bin/custom \
 -v /path/to/config:/opt/hybris/config \
 -e REGISTRY=172.17.0.1:5000 \
 -e IMAGE_TAG=172.17.0.1:5000/hybris:latest \
---privileged --rm --name hybris-build  zqiannnn/hybris-build 
+--privileged --rm --name hybris-build  zqiannnn/hybris-build:6.3
 ```
 **Kubernetes:**
 ```
-kubectl run -v /path/to/custom:/opt/hybris/bin/custom \
+kubectl run -v /path/to/bin:/opt/hybris/bin \
 -v /path/to/config:/opt/hybris/config \
 -e REGISTRY=localhost:5000 -e USERNAME=test \
 -e PASSWORD=test -e IMAGE_TAG=172.17.0.1:5000/hybris:latest  \
