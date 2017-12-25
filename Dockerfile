@@ -25,7 +25,25 @@ RUN set -x \
 
 
 #Set Up Hybris
-COPY hybris /opt/hybris
+COPY hybris/bin/ext-accelerator /opt/hybris/bin/ext-accelerator
+COPY hybris/bin/ext-addon /opt/hybris/bin/ext-addon
+COPY hybris/bin/ext-atdd /opt/hybris/ext-atdd
+COPY hybris/bin/ext-atddtests /opt/hybris/ext-atddtests
+COPY hybris/bin/ext-backoffice /opt/hybris/ext-backoffice
+COPY hybris/bin/ext-channel /opt/hybris/ext-channel
+COPY hybris/bin/ext-cockpit /opt/hybris/ext-cockpit
+COPY hybris/bin/ext-commerce /opt/hybris/ext-commerce
+COPY hybris/bin/ext-content /opt/hybris/ext-content
+COPY hybris/bin/ext-customer-experience /opt/hybris/ext-customer-experience
+COPY hybris/bin/ext-data /opt/hybris/ext-data
+COPY hybris/bin/ext-eventtracking /opt/hybris/ext-eventtracking
+COPY hybris/bin/ext-integration /opt/hybris/ext-integration
+COPY hybris/bin/ext-platform-backoffice /opt/hybris/ext-platform-backoffice
+COPY hybris/bin/ext-platform-optional /opt/hybris/ext-platform-optional
+COPY hybris/bin/ext-print /opt/hybris/ext-print
+COPY hybris/bin/ext-supportability /opt/hybris/ext-supportability
+COPY hybris/bin/ext-template /opt/hybris/ext-template
+COPY hybris/bin/platform /opt/hybris/platform
 
 
 ENV PLATFORM_HOME=/opt/hybris/bin/platform

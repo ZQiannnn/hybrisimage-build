@@ -34,11 +34,3 @@ docker run -v /path/to/custom:/opt/hybris/bin/custom \
 -e IMAGE_TAG=172.17.0.1:5000/hybris:latest \
 --privileged --rm --name hybris-build  zqiannnn/hybris-build:6.3
 ```
-**Kubernetes:**
-```
-kubectl run -v /path/to/bin:/opt/hybris/bin \
--v /path/to/config:/opt/hybris/config \
--e REGISTRY=localhost:5000 -e USERNAME=test \
--e PASSWORD=test -e IMAGE_TAG=172.17.0.1:5000/hybris:latest  \
---rm --image=zqiannnn/hybris-build  --restart=Never hybris-build 
-```
