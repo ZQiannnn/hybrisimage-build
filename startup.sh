@@ -4,7 +4,7 @@ set -e
 
 echo "Set Up Hybris"
 cd $PLATFORM_HOME
-ant clean all production
+ant clean all production -Dproduction.legacy.mode=false
 
 echo "Wait For Docker"
 success=""
@@ -30,5 +30,5 @@ echo "Push Image"
 if [ ! -z "$USERNAME" ] &&  [ ! -z "$PASSWORD" ] &&  [ ! -z "$REGISTRY" ]; then
     docker login  -u $USERNAME -p $PASSWORD $REGISTRY
 fi
-sleep 10000
-#docker push $IMAGE_TAG
+
+docker push $IMAGE_TAG
