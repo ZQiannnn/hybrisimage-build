@@ -1,0 +1,5 @@
+FROM zqiannnn/hybris-base-image:latest
+
+COPY hybrisServer*.zip /home/hybris/
+
+VOLUME /home/hybris/data

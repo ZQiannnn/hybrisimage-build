@@ -15,7 +15,6 @@ RUN { \
 ENV JAVA_HOME /usr/lib/jvm/java-1.8-openjdk
 ENV PATH $PATH:/usr/lib/jvm/java-1.8-openjdk/jre/bin:/usr/lib/jvm/java-1.8-openjdk/bin
 
-ENV JAVA_VERSION 8u111
 ENV JAVA_ALPINE_VERSION 8.121.13-r0
 
 RUN set -x \
@@ -43,6 +42,10 @@ COPY HYRRIS_BASE_IMAGE /root/Dockerfile
 
 COPY startup.sh /usr/local/bin/startup.sh
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+
+#Set Up Other
+RUN set -x \
+	&& apk add --no-cache  nodejs
 
 ENTRYPOINT ["docker-entrypoint.sh"]
 CMD ["startup.sh"]

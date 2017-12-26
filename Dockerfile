@@ -19,7 +19,7 @@ ENV JAVA_ALPINE_VERSION 8.121.13-r0
 
 RUN set -x \
 	&& apk add --no-cache \
-		openjdk8="$JAVA_ALPINE_VERSION"  bash nodejs\
+		openjdk8="$JAVA_ALPINE_VERSION"  bash\
 	&& [ "$JAVA_HOME" = "$(docker-java-home)" ]
 
 
@@ -62,6 +62,10 @@ COPY HYRRIS_BASE_IMAGE /root/Dockerfile
 
 COPY startup.sh /usr/local/bin/startup.sh
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+
+#Set Up Other
+RUN set -x \
+	&& apk add --no-cache  nodejs
 
 ENTRYPOINT ["docker-entrypoint.sh"]
 CMD ["startup.sh"]
