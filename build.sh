@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-docker bulid -t zqiannnn/hybris-build .
+docker build -t zqiannnn/hybris-build .
