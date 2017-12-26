@@ -65,7 +65,7 @@ COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 
 #Set Up Other
 RUN set -x \
-	&& apk add --no-cache  nodejs
+	&& apk add --no-cache  nodejs python=2.7.13-r0 git-perl bash make gcc g++
 
 ENTRYPOINT ["docker-entrypoint.sh"]
 CMD ["startup.sh"]
