@@ -20,7 +20,7 @@ ENV JAVA_ALPINE_VERSION 8.121.13-r0
 
 RUN set -x \
 	&& apk add --no-cache \
-		openjdk8="$JAVA_ALPINE_VERSION"  bash\
+		openjdk8="$JAVA_ALPINE_VERSION"  bash nodejs\
 	&& [ "$JAVA_HOME" = "$(docker-java-home)" ]
 
 
