@@ -17,7 +17,8 @@ IMAGE_TAG: 需要生成的ImageTag ([REGISTRY_HOST[:REGISTRY_PORT]/]REPOSITORY[:
 
 ### Demo
 **Docker:**
-> 外挂HYBRIS模式
+> 外置HYBRIS模式 需升级npm依赖(容器alpine系统需要)
+`替换 grunt-sass、node-sass至 hybris/bin/ext-content/npmancillary/resources/npm/node_modules`
 ```
 docker run -v /path/to/bin:/opt/hybris/bin \
 -v /path/to/config:/opt/hybris/config \
