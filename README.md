@@ -17,17 +17,17 @@ IMAGE_TAG: 需要生成的ImageTag ([REGISTRY_HOST[:REGISTRY_PORT]/]REPOSITORY[:
 
 ### Demo
 **Docker:**
-> 外置HYBRIS模式 需升级npm依赖(容器alpine系统需要)
-`替换 grunt-sass、node-sass至 hybris/bin/ext-content/npmancillary/resources/npm/node_modules`
+> alipine
 ```
-docker run -v /path/to/bin:/opt/hybris/bin \
--v /path/to/config:/opt/hybris/config \
--e REGISTRY=172.17.0.1:5000 \
--e IMAGE_TAG=172.17.0.1:5000/hybris:latest \
---privileged --rm --name hybris-build  zqiannnn/hybris-build:extenal
+docker run -v /Users/zhang/Work/WorkSpace/ln/hybris/bin/custom:/opt/hybris/bin/custom \
+-v /Users/zhang/Work/WorkSpace/ln/hybris/config:/opt/hybris/config \
+-v /Users/zhang/Work/Resource/Hybris/6.3:/opt/binaries \
+-e REGISTRY=172.17.0.2:5000 \
+-e IMAGE_TAG=172.17.0.2:5000/zqiannnn/hybris:latest \
+--privileged --rm  zqiannnn/hybris-build:alpine
 ```
 
-> 内置HYBRIS模式（适用于持续集成）
+> ubuntu
 ```
 docker run -v /path/to/custom:/opt/hybris/bin/custom \
 -v /path/to/config:/opt/hybris/config \
